@@ -1,0 +1,29 @@
+---
+title: 'Next.js로 기술 블로그 만들기'
+thumbnail: '/images/nextjs-blog-thumbnail.png'
+date: '2025-03-04'
+description: 'Next.js와 MDX를 활용하여 기술 블로그를 구축하는 방법을 알아봅니다.'
+---
+
+## Next.js와 MDX로 블로그 만들기
+
+기술 블로그를 구축하는 과정에서 **Next.js**와 **MDX**를 활용하면 유연하고 강력한 문서 작성 환경을 만들 수 있습니다.
+
+### 1. MDX란?
+
+MDX는 마크다운과 JSX를 결합하여 React 컴포넌트를 쉽게 활용할 수 있도록 돕는 포맷입니다.
+
+### 2. gray-matter로 메타데이터 파싱
+
+`gray-matter`를 사용하면 마크다운 파일에서 메타데이터를 추출할 수 있습니다.
+
+```tsx
+import fs from 'fs';
+import matter from 'gray-matter';
+
+const fileContent = fs.readFileSync('example.mdx', 'utf-8');
+const { data, content } = matter(fileContent);
+
+console.log(data); // { title: "...", thumbnail: "...", date: "...", description: "..." }
+console.log(content); // MDX 본문
+```
